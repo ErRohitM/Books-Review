@@ -1,4 +1,4 @@
-<h4 align="left">Books Catalog / Book Review Full stack web application</h4>
+<h4 align="left">Books Catalog / Book Review Pure Django web application</h4>
 
 ###
 
