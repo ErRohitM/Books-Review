@@ -1,0 +1,60 @@
+{% extends "books/base.html" %}
+{% block content %}
+{% for books in book %}
+
+    <div class="modal-dialog" role="document" style="display:inline-flex;padding:7rem; padding-bottom:2rem;">
+      
+      
+      <div class="modal-content rounded-4 shadow" style="width:27rem;">
+        <div class="modal-body p-5" >
+          <h2 class="fw-bold mb-0" style="padding-left:6rem;">{{ books.title }}</h2>
+          
+          <ul class="d-grid gap-4 my-5">
+            <li class="d-flex gap-4" style="width:12rem; height:8rem;">
+              {% if books.book_image %}
+              <img src="{{ books.book_image.url }}" style="height: 7rem; width:10rem;">
+              {% endif %}
+            </li>
+            <li class="d-flex gap-4">
+              <svg class="bi text-warning flex-shrink-0" width="48" height="48"><use xlink:href="#bookmark-star"/></svg>
+              <div>
+                
+                <h5>{{ books.genere }}</h5>
+              </div>
+            </li>
+            <li class="d-flex gap-4">
+              <svg class="bi text-body-secondary flex-shrink-0" width="48" height="48"><use xlink:href="#grid-fill"/></svg>
+              <div>
+                <h5 class="mb-0">Author</h5>
+                {{ books.author }}
+                
+              </div>
+            </li>
+            
+            <li class="d-flex gap-4">
+              <svg class="bi text-primary flex-shrink-0" width="48" height="48"><use xlink:href="#film"/></svg>
+              <div>
+                <h5 class="mb-0">Published On </h5>
+                {{books.publication_date}}
+              </div>
+            </li>
+          </ul>
+          {% if books.avialable_free %}
+                <h5>Available : Free</h5>
+              {% else %}
+                <h5>Available : Paid</h5>
+              {% endif %}
+          <a href="search_books/{{ books.book_id }}" class="icon solid fa-comment"> 
+            <button type="button" class="btn btn-lg btn-primary mt-5 w-100">More</button></a>
+        
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+{% endfor %} 
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'books/base.html' %}
+{% block content %}
+
+
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+  <div class="row align-items-center g-lg-5 py-5">
+    <div class="col-lg-7 text-center text-lg-start">
+      <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">{{ book.title }}</h1>
+      <p class="col-lg-10 fs-4">{{ book.description }}.</p>
+    </div>
+    <div class="col-md-10 mx-auto col-lg-5">
+        {% if book.book_image %}
+            <img src="{{ book.book_image.url }}" style="height: 27rem; width:30rem;"></br></br>
+        {% endif %}
+        <h1>Author : <a href="{% url "index" %}">{{ book.author }}</a></h1></br>
+        <h1>published On : <h4>{{ book.publication_date }}</h4></h1></br>
+        
+        <ul class="stats">
+          
+          <li><a href="review/{{ book.book_id}}" class="icon solid fa-comment"> 
+            <button type="button" class="btn btn-lg btn-primary mt-5 w-100">comment</button></a></li></br></br>
+            <li><a href="#">Buy Now</a></li>
+        </ul>
+    </div>
+  </div>
+
+  
+
+
+{% endblock %}

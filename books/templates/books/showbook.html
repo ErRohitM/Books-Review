@@ -1,0 +1,57 @@
+{% extends 'books/base.html' %}
+{% load static %}
+{% block content %}
+{% for result in search_results %}
+
+<div class="modal-dialog" role="document" style="display:inline-flex;padding:7rem; padding-bottom:2rem;">
+      
+      
+  <div class="modal-content rounded-4 shadow" style="width:27rem;">
+    <div class="modal-body p-5" >
+      
+        <h2 class="fw-bold mb-0" style="padding-left:6rem;">{{ result.title }}</h2>
+            
+            <ul class="d-grid gap-4 my-5 list-unstyled small">
+              <li >
+                {% if result.book_image %}
+                  <img src="{{ result.book_image.url }}" style="height: 7rem; width:17rem; padding-left:2rem;">
+                {% endif %}
+              </li>
+              <li class="d-flex gap-4">
+                <svg class="bi text-body-secondary flex-shrink-0" width="48" height="48"><use xlink:href="#grid-fill"/></svg>
+                <div>
+                  <h3 class="mb-0">Author</h3>
+                  <h6>{{ result.author }}</h6>
+                  
+                </div>
+              </li>
+              <li class="d-flex gap-4">
+                <svg class="bi text-warning flex-shrink-0" width="48" height="48"><use xlink:href="#bookmark-star"/></svg>
+                <div>
+                  <h3 class="mb-0">Book Type</h3>
+                  <h6>{{ result.genere }}</h6>
+                </div>
+              </li>
+              <li class="d-flex gap-4">
+                <svg class="bi text-primary flex-shrink-0" width="48" height="48"><use xlink:href="#film"/></svg>
+                <div>
+                  <h3 class="mb-0">Published On</h3>
+                  <h6>{{result.publication_date }}</h6>
+                </div>
+              </li>
+              {% if result.avialable_free %}
+                <h5>Available : Free</h5>
+              {% else %}
+                <h5>Available : Paid</h5>
+              {% endif %}
+            </ul>
+            <a href="{{ result.book_id }}" class="icon solid fa-comment"> 
+            <button type="button" class="btn btn-lg btn-primary mt-5 w-100">kasndkas</button></a>
+          
+    </div>
+  </div>
+</div>
+
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'books/base.html' %}
+{% block content %}
+<div class="modal-dialog" role="document" style="display:inline-flex;padding:7rem; padding-bottom:2rem;">
+      
+      
+    <div class="modal-content rounded-4 shadow" style="width:40rem;">
+      <div class="modal-body p-5" >
+        <form method="POST" action="" style="width:30rem; text-xl;">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-lg btn-primary mt-5 w-100">Review</button>
+        </form>
+    </div>
+</div>
+</div>
+
+{% endblock %}

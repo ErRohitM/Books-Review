@@ -1,0 +1,6 @@
+{% extends 'books/base.html' %}
+{% block content %}
+{% for book_reviews in review %}
+  <h1>{{book_reviews.review_text}}</h1>
+  {% endfor %}
+{% endblock %}
